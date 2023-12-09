@@ -7,7 +7,6 @@ import unittest
 from models.city import City
 from models.base_model import BaseModel
 
-
 class TestText(unittest.TestCase):
 
     """TesTExt class"""
@@ -41,7 +40,5 @@ class TestText(unittest.TestCase):
         city.name = "Test City"
         self.assertEqual(city.state_id, "state_123")
         self.assertEqual(city.name, "Test City")
-
-
 if __name__ == "__main__":
     unittest.main()
