@@ -14,7 +14,6 @@ from models.review import Review
 import os
 import models
 
-
 class FileStorage:
 
     """A Storage Engine of instances"""
@@ -47,7 +46,7 @@ class FileStorage:
 
         key = f"{obj.__class__.__name__}.{obj.id}"
 
-        FileStorage.__objects.update({key: obj})
+        self.__objects[key] = obj
 
     def save(self):
         """An object that serializes object into json file"""
