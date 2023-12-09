@@ -13,7 +13,6 @@ class TestText(unittest.TestCase):
     """TesTExt class"""
 
     def test_documentation(self):
-
         """Testcase for documentaion of the Baseclass and also the Textclass"""
         self.assertTrue(len(City.__doc__) > 2)
         self.assertTrue(len(TestText.__doc__) > 2)

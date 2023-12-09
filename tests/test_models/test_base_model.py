@@ -18,7 +18,6 @@ class baseText(unittest.TestCase):
         self.obj1.name = "omotayo"
 
     def test_documentation(self):
-
         """Testcase for documentaion of the Baseclass and also the Textclass"""
         self.assertTrue(len(BaseModel.__doc__) > 2)
         self.assertTrue(len(baseText.__doc__) > 2)
@@ -35,8 +34,8 @@ class baseText(unittest.TestCase):
         self.assertEqual(self.obj2.id, ans1)
 
     def test_objectId(self):
-
-        """testing value instance assignment if its present on the obj1 instance"""
+        """testing value instance assignment
+        if its present on the obj1 instance"""
 
         self.obj1.name = "omotayo"
         self.obj2.name = "tee"
@@ -44,7 +43,6 @@ class baseText(unittest.TestCase):
         self.assertEqual(self.obj2.name, "tee")
 
     def test_objectDate(self):
-
         """testing the date instances"""
 
         first = self.obj1.created_at
@@ -54,7 +52,8 @@ class baseText(unittest.TestCase):
         self.assertEqual(self.obj2.created_at, second)
 
     def test_rasises(self):
-        """test to check if re-create an instance with this dictionary representation of another instance"""
+        """test to check if re-create an instance
+        with this dictionary representation of another instance"""
 
         store = BaseModel(**self.obj1.to_dict())
 
@@ -62,7 +61,8 @@ class baseText(unittest.TestCase):
         self.assertEqual(store.name, self.obj1.name)
 
     def test_rasises(self):
-        """test to check if re-create an instance with this dictionary representation of another instance"""
+        """test to check if re-create an instance
+        with this dictionary representation of another instance"""
 
         store = BaseModel(**self.obj1.to_dict())
 
@@ -102,7 +102,6 @@ class baseText(unittest.TestCase):
         self.assertIsInstance(str_repr, str)
 
     def test_save_method_updates_updated_at(self):
-
         """test case to filr to a file"""
 
         initial_updated_at = self.obj1.updated_at

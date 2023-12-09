@@ -13,19 +13,16 @@ from io import StringIO
 from unittest.mock import patch
 
 
-
 class TestHBNB_prompt(unittest.TestCase):
-    """ testing prompting of the HBNB command interpreter.
-    """
+    """testing prompting of the HBNB command interpreter."""
 
     def test_line(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd(""))
             self.assertEqual("", output.getvalue().strip())
-    
+
     def test_prompt(self):
         self.assertEqual("(hbnb) ", HBNBCommand.prompt)
-
 
 
 class TestHBNB_exit(unittest.TestCase):
@@ -61,21 +58,22 @@ class TestHBNB_create(unittest.TestCase):
             os.rename("temp", "file.json")
         except IOError:
             pass
-        
+
     def test_create_class(self):
         rect = "** class doesn't exist **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create MyModel"))
             self.assertEqual(rect, output.getvalue().strip())
+
     def test_createclass(self):
         corr = "** class name missing **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create"))
             self.assertEqual(corr, output.getvalue().strip())
-            
+
+
 class TestHBNBC_show(unittest.TestCase):
-    """testing the 'show' command in HBNBCommand.
-    """
+    """testing the 'show' command in HBNBCommand."""
 
     @classmethod
     def setUp(self):
@@ -110,8 +108,7 @@ class TestHBNBC_show(unittest.TestCase):
 
 
 class TestHBNB_destroy(unittest.TestCase):
-    """testing the 'destroy' command in HBNBCommand.
-    """
+    """testing the 'destroy' command in HBNBCommand."""
 
     @classmethod
     def setUp(self):
@@ -147,8 +144,7 @@ class TestHBNB_destroy(unittest.TestCase):
 
 
 class TestHBNB_all(unittest.TestCase):
-    """testing the 'all' command in HBNBCommand.
-    """
+    """testing the 'all' command in HBNBCommand."""
 
     @classmethod
     def setUp(self):
@@ -168,15 +164,15 @@ class TestHBNB_all(unittest.TestCase):
             os.rename("temp", "file.json")
         except IOError:
             pass
-    
+
     def test_all_name(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("all BaseModel"))
             self.assertTrue(isinstance(output.getvalue(), str))
-            
+
+
 class TestHBNB_update(unittest.TestCase):
-    """testing the 'update' command in HBNBCommand.
-    """
+    """testing the 'update' command in HBNBCommand."""
 
     @classmethod
     def setUp(self):
@@ -235,8 +231,9 @@ class TestHBNB_count(unittest.TestCase):
     def test_count(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("MyModel.count()"))
-            self.assertEqual("*** Unknown syntax: MyModel.count()",
-                             output.getvalue().strip())
+            self.assertEqual(
+                    "*** Unknown syntax: MyModel.count()",
+                    output.getvalue().strip())
 
 
 if __name__ == "__main__":

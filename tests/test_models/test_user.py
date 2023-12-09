@@ -16,7 +16,6 @@ class TestUser(unittest.TestCase):
     """A user Test class"""
 
     def test_documentation(self):
-
         """Testcase for documentaion of the Baseclass and also the Textclass"""
         self.assertTrue(len(User.__doc__) > 2)
         self.assertTrue(len(TestUser.__doc__) > 2)
