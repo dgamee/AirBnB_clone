@@ -57,8 +57,8 @@ class FileStorage:
             json.dump(load_instance_to_dictionaries, file)
 
     def reload(self):
-        """A method that deserialize json file"""
-        if os.path.exits(self.__file_path):
+            """A method that deserialize json file"""
+    
             try:
                 with open(self.__file_path, "r", encoding="utf-8") as file:
                     hold = json.load(file)
@@ -66,5 +66,5 @@ class FileStorage:
                 for key, value in hold.items():
                     obj = self.dict_val[value["__class__"]](**value)
                     self.__objects[key] = obj
-            except FileNotFoundError:
+            except Exception:
                 pass
