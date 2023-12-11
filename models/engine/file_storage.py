@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
-"""A class FileStorage that serializes instances to a JSON file and deserializes JSON file to instances"""
+"""A class FileStorage that serializes instances to a
+JSON file and deserializes JSON file to instances"""
+
 import json
 from models.base_model import BaseModel
 from models.user import User
@@ -35,7 +37,8 @@ class FileStorage:
         return FileStorage.__objects
 
     def new(self, obj):
-        """A method that update the class attribute object before the save is been call"""
+        """A method that update the class
+        attribute object before the save is been call"""
 
         key = f"{obj.__class__.__name__}.{obj.id}"
 
@@ -51,7 +54,7 @@ class FileStorage:
 
     def reload(self):
         """A method that deserialize json file"""
-        
+
         try:
             with open(FileStorage.__file_path, "r", encoding="utf-8") as file:
                 hold = json.load(file)
@@ -59,6 +62,5 @@ class FileStorage:
             for key, value in hold.items():
                 obj = self.dict_val[value["__class__"]](**value)
                 self.__objects[key] = obj
-        except:
+        except Exception:
             pass
-
