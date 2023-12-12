@@ -72,7 +72,7 @@ class TestUser(unittest.TestCase):
         """Test the default attributes of a User instance."""
         self.assertTrue(hasattr(self.user, "email"))
         self.assertTrue(hasattr(self.user, "password"))
-        self.assertTrue(hasattr(self.user, "firstname"))
+        self.assertTrue(hasattr(self.user, "first_name"))
         self.assertTrue(hasattr(self.user, "last_name"))
 
     def test_user_save(self):
