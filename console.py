@@ -198,8 +198,8 @@ class HBNBCommand(cmd.Cmd):
                     + see[1].replace('"', "")
                     + " "
                     + first[0].strip()
-                    + " "
-                    + last[-1]
+                    + last[-1].replace('"', "")
+                    + keep[-1]
                 )
 
         return cmd.Cmd.precmd(self, line)
