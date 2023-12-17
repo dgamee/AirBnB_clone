@@ -1,0 +1,27 @@
+header {
+    background-color: white; 
+    height: 70px; 
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+.logo {
+    background-image: url(https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon.png);
+    width: 50px; /* Adjust dimensions as needed */
+    height: 50px;
+    padding: 10px;
+    margin-left: 20px;
+    background-size: cover; /* Ensure the background covers the entire element */
+}
+header div.logo {
+    display: grid;
+    grid-template-columns: 7fr auto;
+}
+.company_name{
+    grid-column: 2/3;
+    padding: 5px;
+    padding-top: 10px;
+    font-size: medium;
+}
